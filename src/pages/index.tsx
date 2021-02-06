@@ -1,7 +1,9 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, { FC } from 'react';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+// eslint-disable-next-line arrow-body-style
+const Home: FC = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -61,5 +63,7 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
