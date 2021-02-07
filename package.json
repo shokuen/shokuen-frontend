@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && next export -o build",
+    "start": "next start",
+    "publish": "http-server -p 3000 build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -o build/storybook -s public",
+    "publish-storybook": "http-server -p 6006 build/storybook"
   },
   "dependencies": {
     "next": "10.0.6",
@@ -13,10 +17,18 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-knobs": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/react": "^6.1.17",
     "@types/node": "^14.14.25",
     "@types/react": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -24,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "http-server": "^0.12.3",
     "prettier": "2.2.1",
     "typescript": "^4.1.3"
   }
