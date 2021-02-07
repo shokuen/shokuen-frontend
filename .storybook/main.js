@@ -1,7 +1,5 @@
 module.exports = {
-  stories: [
-    '../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)'
-  ],
+  stories: ['../stories/**/*.stories.@(mdx|js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -12,15 +10,14 @@ module.exports = {
 
   webpackFinal: async (config) => {
     config.module.rules = [
-      ...config.module.rules.filter(rule => rule.test.source !== (/\.css$/).source),
+      ...config.module.rules.filter(
+        (rule) => rule.test.source !== /\.css$/.source
+      ),
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ['style-loader', 'css-loader']
       }
-    ]
-    return config
+    ];
+    return config;
   }
 };

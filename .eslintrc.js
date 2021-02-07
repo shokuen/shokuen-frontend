@@ -52,6 +52,15 @@ module.exports = {
     // 末尾の要素のカンマをつけない（ESLintのデフォルト）
     'comma-dangle': ['error', 'never'],
 
+    // devDependenciesのimportの許可
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/*.stories.tsx'], // Storybookのimportを許可
+        optionalDependencies: false
+      }
+    ],
+
     /*
      * ESLintのルールをTypeScript ESLintのルールで上書き
      */
