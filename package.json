@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export -o build",
     "start": "next start",
+    "publish": "http-server -p 3000 build",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -o public/"
+    "build-storybook": "build-storybook -o build/storybook -s public",
+    "publish-storybook": "http-server -p 6006 build/storybook"
   },
   "dependencies": {
     "next": "10.0.6",
@@ -34,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "http-server": "^0.12.3",
     "prettier": "2.2.1",
     "typescript": "^4.1.3"
   }
