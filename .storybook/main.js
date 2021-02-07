@@ -18,6 +18,14 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ];
+    config.devServer = {
+      ...config.devServer,
+      watchOptions: {
+        poll: true,
+        ignored: /node_modules/
+      }
+    };
+    console.log(config);
     return config;
   }
 };
